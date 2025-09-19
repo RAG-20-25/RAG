@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>RAG</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .company-info {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .company-info strong {
+      color: #f1c40f;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      margin: 10px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .viewer {
+      display: none;
+      padding: 20px;
+      background: white;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 15px;
+      background: #e74c3c;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* زر الماسنجر */
+    .messenger-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #0084ff;
+      color: white;
+      border-radius: 6px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+    }
+    .messenger-btn:hover {
+      background: #005bb5;
+    }
+
+    /* تنسيق الصور في العمود */
+    .viewer-images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .viewer-images img {
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- العنوان -->
+  <header>
+    <h1>RAG</h1>
+    <div class="company-info">
+      📞 الهاتف: <strong>01118736779</strong><br>
+      📍 العنوان: <strong>ناهيا البلد</strong><br>
+      👤 صاحب الشركة: <strong>الأستاذ علاء عصام عمر</strong>
+    </div>
+  </header>
+
+  <!-- شبكة المنتجات -->
+  <section class="products">
+    <div class="product" onclick="openViewer('بلدي')">
+      <img src="15.png" alt="بيض بلدي">
+      <h3>بيض بلدي</h3>
+    </div>
+    <div class="product" onclick="openViewer('سمان')">
+      <img src="11.png" alt="بيض سمان">
+      <h3>بيض سمان</h3>
+    </div>
+    <div class="product" onclick="openViewer('فيديو')">
+      <img src="1.png" alt="فيديوهات">
+      <h3>فيديوهات</h3>
+    </div>
+  </section>
+
+  <!-- زر الماسنجر -->
+  <a href="https://web.facebook.com/people/%D8%B9%D9%84%D8%A7%D8%A1-%D8%B9%D8%B5%D8%A7%D9%85-%D8%B9%D9%84%D8%A7%D8%A1-%D8%B9%D8%B5%D8%A7%D9%85/pfbid0qPgLUPNLJS6p8oJkEbZbLYoD6w2uTkMMxy7zF4ixmN7NXFVs41RN45tEbMfa3kEdl/?rdid=cj1qK9k5rmBXZBVR&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F17PMAWK2d5%2F%3F_rdc%3D1%26_rdr" target="_blank" class="messenger-btn">💬 راسلنا على الماسنجر</a>
+
+  <!-- منطقة العرض -->
+  <section id="viewer" class="viewer">
+    <a class="back-btn" onclick="closeViewer()">⬅ رجوع</a>
+    <div id="viewerContent"></div>
+  </section>
+
+  <script>
+    function openViewer(type) {
+      let content = "";
+      if (type === "بلدي") {
+        content = "<h2>بيض بلدي</h2><p>هنا صور وعروض البيض البلدي.</p>" +
+        "<div class='viewer-images'>" +
+        "<img src='14.png'>" +
+        "</div>";
+      } else if (type === "سمان") {
+        content = "<h2>بيض سمان</h2><p>هنا صور وعروض بيض السمان.</p>" +
+        "<div class='viewer-images'>" +
+        "<img src='6.png'>" +
+        "<img src='2.png'>" +
+        "<img src='3.png'>" +
+        "<img src='4.png'>" +
+        "<img src='5.png'>" +
+        "<img src='10.png'>" +
+        "<img src='12.png'>" +
+        "<img src='13.png'>" +
+        "<img src='16.png'>" +
+        "<img src='17.png'>" +
+        "<img src='18.png'>" +
+        "</div>";
+      } else if (type === "فيديو") {
+        content = "<h2>الفيديوهات</h2>" +
+                  "<iframe width='560' height='315' src='https://www.youtube.com/embed/35jyv4n1pMc' frameborder='0' allowfullscreen></iframe>";
+      }
+
+      document.getElementById("viewerContent").innerHTML = content;
+      document.querySelector(".products").style.display = "none";
+      document.getElementById("viewer").style.display = "block";
+    }
+
+    function closeViewer() {
+      document.querySelector(".products").style.display = "grid";
+      document.getElementById("viewer").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
+
