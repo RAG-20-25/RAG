@@ -84,22 +84,25 @@
       cursor: pointer;
     }
 
-    /* زر الماسنجر */
-    .messenger-btn {
-      display: block;
-      margin: 20px auto;
+    /* أزرار المراسلة */
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .contact-buttons a {
       padding: 10px 20px;
-      background: #0084ff;
-      color: white;
       border-radius: 6px;
       text-align: center;
       text-decoration: none;
       font-weight: bold;
-      width: fit-content;
+      color: white;
     }
-    .messenger-btn:hover {
-      background: #005bb5;
-    }
+    .messenger-btn { background: #0084ff; }
+    .messenger-btn:hover { background: #005bb5; }
+    .whatsapp-btn { background: #25d366; }
+    .whatsapp-btn:hover { background: #128c7e; }
 
     /* تنسيق الصور في العمود */
     .viewer-images {
@@ -112,6 +115,22 @@
       width: 250px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* الفيديوهات */
+    .videos-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .videos-section iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -143,13 +162,24 @@
     </div>
   </section>
 
-  <!-- زر الماسنجر -->
-  <a href="https://web.facebook.com/people/%D8%B9%D9%84%D8%A7%D8%A1-%D8%B9%D8%B5%D8%A7%D9%85-%D8%B9%D9%84%D8%A7%D8%A1-%D8%B9%D8%B5%D8%A7%D9%85/pfbid0qPgLUPNLJS6p8oJkEbZbLYoD6w2uTkMMxy7zF4ixmN7NXFVs41RN45tEbMfa3kEdl/?rdid=cj1qK9k5rmBXZBVR&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F17PMAWK2d5%2F%3F_rdc%3D1%26_rdr" target="_blank" class="messenger-btn">💬 راسلنا على الماسنجر</a>
+  <!-- أزرار المراسلة -->
+  <div class="contact-buttons">
+    <a href="https://web.facebook.com/people/%D8%B9%D9%84%D8%A7%D8%A1-%D8%B9%D8%B5%D8%A7%D9%85-%D8%B9%D9%84%D8%A7%D8%A1-%D8%B9%D8%B5%D8%A7%D9%85/pfbid02uF83f4JA9qtD4DZRqbjccpYKWe84EU8Kx3ZYfDZMcf15f7667zRHzZ9tMjCUXcrsl/?rdid=YspRvXfYuMgSrtWV&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F17PMAWK2d5%2F%3F_rdc%3D1%26_rdr" target="_blank" class="messenger-btn">💬 ماسنجر</a>
+    <a href="https://wa.me/201101368906" target="_blank" class="whatsapp-btn">📱 واتساب</a>
+
+  </div>
 
   <!-- منطقة العرض -->
   <section id="viewer" class="viewer">
     <a class="back-btn" onclick="closeViewer()">⬅ رجوع</a>
     <div id="viewerContent"></div>
+  </section>
+
+  <!-- قسم الفيديوهات أسفل الصفحة -->
+  <section class="videos-section">
+    <h2>🎥 الفيديوهات</h2>
+    <iframe src="https://www.youtube.com/embed/35jyv4n1pMc" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/L2NpgQOSAcA" frameborder="0" allowfullscreen></iframe>
   </section>
 
   <script>
@@ -177,6 +207,8 @@
         "</div>";
       } else if (type === "فيديو") {
         content = "<h2>الفيديوهات</h2>" +
+		 "<iframe width='560' height='315' src='https://www.youtube.com/embed/L2NpgQOSAcA' frameborder='0' allowfullscreen></iframe>" +
+		                 "<iframe width='560' height='315' src='https://www.youtube.com/embed/gwZsKr9YoLE' frameborder='0' allowfullscreen></iframe>" +
                   "<iframe width='560' height='315' src='https://www.youtube.com/embed/35jyv4n1pMc' frameborder='0' allowfullscreen></iframe>";
       }
 
@@ -193,4 +225,3 @@
 
 </body>
 </html>
-
